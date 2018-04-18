@@ -12,6 +12,16 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+            'view' => [
+                'theme' => [
+                    'pathMap' => [
+                        '@app/views' => '@vendor/dmstr/yii2-adminlte-asset/example-views/yiisoft/yii2-app'
+                    ],
+                ],
+            ],
+        'init' => [
+            'class' => 'app\components\Init'
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'tVj2DVa-hdEZIBHir9k_aMcgsSPrtefK',
@@ -44,16 +54,17 @@ $config = [
         ],
         'db' => $db,
 
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-                ''=>'site/login'
-            ],
-        ],
+//        'urlManager' => [
+//            'enablePrettyUrl' => true,
+//            'showScriptName' => false,
+//            'rules' => [
+//               // '/'=>'site/login'
+//            ],
+//        ],
 
     ],
     'params' => $params,
+    //'defaultRoute' => 'site/login',
 ];
 
 if (YII_ENV_DEV) {
