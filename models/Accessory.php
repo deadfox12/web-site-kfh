@@ -3,15 +3,16 @@
 namespace app\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
- * This is the model class for table "vehicle_accessory".
+ * This is the model class for table "accessory".
  *
- * @property int $vehicle_id
- * @property int $accessory_id
+ * @property int $id
+ * @property string $title
  *
- * @property Accessory $accessory
- * @property Vehicle $vehicle
+ * @property VehicleAccessory[] $vehicleAccessories
+ * @property Vehicle[] $vehicles
  */
 class Accessory extends \yii\db\ActiveRecord
 {
@@ -20,7 +21,7 @@ class Accessory extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'vehicle_accessory';
+        return 'accessory';
     }
 
     /**
@@ -29,11 +30,8 @@ class Accessory extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['vehicle_id', 'accessory_id'], 'required'],
-            [['vehicle_id', 'accessory_id'], 'integer'],
-            [['vehicle_id', 'accessory_id'], 'unique', 'targetAttribute' => ['vehicle_id', 'accessory_id']],
-            [['accessory_id'], 'exist', 'skipOnError' => true, 'targetClass' => Accessory::className(), 'targetAttribute' => ['accessory_id' => 'id']],
-            [['vehicle_id'], 'exist', 'skipOnError' => true, 'targetClass' => Vehicle::className(), 'targetAttribute' => ['vehicle_id' => 'id']],
+            [['title'], 'required'],
+            [['title'], 'string', 'max' => 255],
         ];
     }
 
@@ -43,24 +41,34 @@ class Accessory extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'vehicle_id' => Yii::t('app', 'Vehicle ID'),
-            'accessory_id' => Yii::t('app', 'Accessory ID'),
+            'id' => Yii::t('app', 'ID'),
+            'title' => Yii::t('app', 'Title'),
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getAccessory()
+    public function getVehicleAccessories()
     {
-        return $this->hasOne(Accessory::className(), ['id' => 'accessory_id']);
+        return $this->hasMany(VehicleAccessory::className(), ['accessory_id' => 'id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getVehicle()
+    public function getVehicles()
     {
-        return $this->hasOne(Vehicle::className(), ['id' => 'vehicle_id']);
+        return $this->hasMany(Vehicle::className(), ['id' => 'vehicle_id'])->viaTable('vehicle_accessory', ['accessory_id' => 'id']);
+    }
+
+    public static function listAll($keyField = 'id', $valueField = 'title', $asArray = true)
+    {
+        $query = static::find();
+        if ($asArray) {
+            $query->select([$keyField, $valueField])->asArray();
+        }
+
+        return ArrayHelper::map($query->all(), $keyField, $valueField);
     }
 }
