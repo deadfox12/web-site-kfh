@@ -5,21 +5,21 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "vehicle_type".
+ * This is the model class for table "agriculture".
  *
  * @property int $id
- * @property string $type
+ * @property string $title
  *
- * @property Vehicle[] $vehicles
+ * @property Varieties[] $varieties
  */
-class VehicleType extends \yii\db\ActiveRecord
+class Agriculture extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'vehicle_type';
+        return 'agriculture';
     }
 
     /**
@@ -28,8 +28,8 @@ class VehicleType extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['type'], 'required'],
-            [['type'], 'string', 'max' => 255],
+            [['title'], 'required'],
+            [['title'], 'string', 'max' => 255],
         ];
     }
 
@@ -40,15 +40,15 @@ class VehicleType extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'type' => Yii::t('app', 'Тип техники'),
+            'title' => Yii::t('app', 'Title'),
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getVehicles()
+    public function getVarieties()
     {
-        return $this->hasMany(Vehicle::className(), ['type_id' => 'id']);
+        return $this->hasMany(Varieties::className(), ['agriculture_id' => 'id']);
     }
 }

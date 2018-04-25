@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\VehicleType */
 
-$this->title = Yii::t('app', 'Create Vehicle Type');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Vehicle Types'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Добавить тип сельхозтехники ');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Тип сельхозтехники'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="vehicle-type-create">
