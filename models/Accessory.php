@@ -42,7 +42,7 @@ class Accessory extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
+            'title' => Yii::t('app', 'Наименование'),
         ];
     }
 
