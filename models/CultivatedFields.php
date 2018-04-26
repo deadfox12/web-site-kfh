@@ -46,9 +46,9 @@ class CultivatedFields extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'crops_id' => Yii::t('app', 'Crops ID'),
-            'pesticide_id' => Yii::t('app', 'Pesticide ID'),
-            'date' => Yii::t('app', 'Date'),
+            'crops_id' => Yii::t('app', 'Посев'),
+            'pesticide_id' => Yii::t('app', 'Химическое средство'),
+            'date' => Yii::t('app', 'Дата посева'),
         ];
     }
 

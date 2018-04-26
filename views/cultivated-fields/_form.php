@@ -36,10 +36,24 @@ $pesticide= \yii\helpers\ArrayHelper::map($arr1,'id','title'/*\app\models\Field:
         ]
     ) ?>
 
-    <?= $form->field($model, 'date')->textInput() ?>
+<!--    --><?//= $form->field($model, 'date')->textInput() ?>
+    <?= $form->field($model, 'date')->widget(\kartik\datetime\DateTimePicker::className(),[
+        'name' => 'dp_1',
+        'type' => \kartik\datetime\DateTimePicker::TYPE_COMPONENT_PREPEND,
+        'convertFormat' => true,
+        'value'=> date("Y-d-m",(integer) $model->date),
+        'pluginOptions' => [
+            'format' => 'YYY-MM-dd',
+            'autoclose'=>true,
+            'weekStart'=>1, //неделя начинается с понедельника
+            'startDate' => '01.05.2015', //самая ранняя возможная дата
+            'todayBtn'=>true, //снизу кнопка "сегодня"
+    ]
+        ]
+    ) ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Сохранить'), ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

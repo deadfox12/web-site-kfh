@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\CultivatedFields */
 
-$this->title = Yii::t('app', 'Create Cultivated Fields');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Cultivated Fields'), 'url' => ['index']];
+$this->title = Yii::t('app', 'Добавить обработанное поле');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Обработанные поля'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cultivated-fields-create">

@@ -5,12 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\CultivatedFields */
 
-$this->title = Yii::t('app', 'Update Cultivated Fields: ' . $model->id, [
+$this->title = Yii::t('app', 'Редактировать: ' . $model->id, [
     'nameAttribute' => '' . $model->id,
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Cultivated Fields'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Обработанные поля'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('app', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('app', 'Обновить');
 ?>
 <div class="cultivated-fields-update">
 
