@@ -45,9 +45,9 @@ class Varieties extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'agriculture_id' => Yii::t('app', 'Agriculture ID'),
-            'title' => Yii::t('app', 'Title'),
-            'productivity' => Yii::t('app', 'Productivity'),
+            'agriculture_id' => Yii::t('app', 'Агрокультура'),
+            'title' => Yii::t('app', 'Название'),
+            'productivity' => Yii::t('app', 'Всхожесть сорта'),
         ];
     }
 
