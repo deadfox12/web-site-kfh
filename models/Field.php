@@ -43,9 +43,9 @@ class Field extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
-            'square' => Yii::t('app', 'Square'),
-            'status' => Yii::t('app', 'Status'),
+            'title' => Yii::t('app', 'Номер'),
+            'square' => Yii::t('app', 'Площадь'),
+            'status' => Yii::t('app', 'Статус'),
         ];
     }
 
