@@ -21,7 +21,8 @@
         "dmstr/yii2-adminlte-asset": "2.*",
         "yii2tech/ar-linkmany": "*",
         "voskobovich/yii2-linker-behavior": "^4.0",
-        "kartik-v/yii2-widget-datetimepicker": "*"
+        "kartik-v/yii2-widget-datetimepicker": "*",
+        "kartik-v/yii2-widget-datepicker": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

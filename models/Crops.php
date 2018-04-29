@@ -47,9 +47,9 @@ class Crops extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'field_id' => Yii::t('app', 'Field ID'),
-            'varieties_id' => Yii::t('app', 'Varieties ID'),
-            'date' => Yii::t('app', 'Date'),
+            'field_id' => Yii::t('app', 'Поле'),
+            'varieties_id' => Yii::t('app', 'Сорт'),
+            'date' => Yii::t('app', 'Дата посева'),
         ];
     }
 

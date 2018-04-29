@@ -4,39 +4,37 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\CultivatedFields */
+/* @var $model app\models\Crops */
 /* @var $form yii\widgets\ActiveForm */
-//Фуу, получаю массив в представлении, надо бы перенести в контроллер
-$selectedCrops = $model->id;
-$arr=\app\models\Crops::find()->with('field')->asArray()->all();
-//var_dump($arr);die();
-$crops= \yii\helpers\ArrayHelper::map($arr,'id','field.title'/*\app\models\Field::find()->select('title')->where(['id' => 1])->one()*/);
-$selectedPesticide = $model->id;
-$arr1=\app\models\Pesticide::find()->all();
-$pesticide= \yii\helpers\ArrayHelper::map($arr1,'id','title'/*\app\models\Field::find()->select('title')->where(['id' => 1])->one()*/);
+$selectedfield = $model->id;
+$arr=\app\models\Field::find()->all();
+$fields= \yii\helpers\ArrayHelper::map($arr,'id','title');
 
+$selectedvarieties = $model->id;
+$arr1=\app\models\Varieties::find()->all();
+$varieties= \yii\helpers\ArrayHelper::map($arr1,'id','title');
 ?>
 
-<div class="cultivated-fields-form">
+<div class="crops-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-
-    <?= $form->field($model, 'crops_id')->dropDownList(
-        $crops,
+    <?= $form->field($model, 'field_id')->dropDownList(
+        $fields,
         [
             'prompt' => '',
         ]
     ) ?>
 
-    <?= $form->field($model, 'pesticide_id')->dropDownList(
-        $pesticide,
+    <?= $form->field($model, 'varieties_id')->dropDownList(
+        $varieties,
         [
             'prompt' => '',
         ]
     ) ?>
 
 <!--    --><?//= $form->field($model, 'date')->textInput() ?>
+
     <?= $form->field($model, 'date')->widget(\kartik\date\DatePicker::className(),[
             'name' => 'dp_1',
             'type' => \kartik\date\DatePicker::TYPE_COMPONENT_PREPEND,
