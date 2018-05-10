@@ -9,7 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string $title
- * @property string $active substance
+ * @property string $active_substance
  * @property int $norm
  *
  * @property CultivatedFields[] $cultivatedFields
@@ -32,7 +32,7 @@ class Pesticide extends \yii\db\ActiveRecord
         return [
             [['title'], 'required'],
             [['norm'], 'integer'],
-            [['title', 'active substance'], 'string', 'max' => 255],
+            [['title', 'active_substance'], 'string', 'max' => 255],
         ];
     }
 
@@ -43,9 +43,9 @@ class Pesticide extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Title'),
-            'active substance' => Yii::t('app', 'Active Substance'),
-            'norm' => Yii::t('app', 'Norm'),
+            'title' => Yii::t('app', 'Наименование'),
+            'active_substance' => Yii::t('app', 'Активное вещество'),
+            'norm' => Yii::t('app', 'Норма расхода'),
         ];
     }
 

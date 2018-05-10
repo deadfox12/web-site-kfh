@@ -15,7 +15,7 @@ class m180419_184822_create_pesticide_table extends Migration
         $this->createTable('pesticide', [
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
-            'active substance' => $this->string(),
+            'active_substance' => $this->string(),
             'norm' => $this->integer(),
         ]);
     }

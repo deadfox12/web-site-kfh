@@ -46,8 +46,9 @@ class Varieties extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app', 'ID'),
             'agriculture_id' => Yii::t('app', 'Агрокультура'),
+            'agricultureTitle' => Yii::t('app', 'Агрокультура'),
             'title' => Yii::t('app', 'Название'),
-            'productivity' => Yii::t('app', 'Всхожесть сорта'),
+            'productivity' => Yii::t('app', 'Всхожесть сорта, %'),
         ];
     }
 
@@ -65,5 +66,11 @@ class Varieties extends \yii\db\ActiveRecord
     public function getAgriculture()
     {
         return $this->hasOne(Agriculture::className(), ['id' => 'agriculture_id']);
+    }
+
+    /* Геттер для названия культуры */
+    public function getAgricultureTitle()
+    {
+        return $this->agriculture->title;
     }
 }
