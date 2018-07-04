@@ -39,7 +39,7 @@
                         'icon' => 'list',
                         'url' => '#',
                         'items' => [
-                            ['label' => 'Культура', 'icon' => 'table', 'url' => ['/agriculture'],],
+                            ['label' => 'Агрокультура', 'icon' => 'table', 'url' => ['/agriculture'],],
                             ['label' => 'Сорта', 'icon' => 'table', 'url' => ['/varieties'],],
                         ],
                     ],
@@ -53,10 +53,12 @@
                             ['label' => 'Навесное оборудование', 'icon' => 'truck', 'url' => ['/accessory'],],
                         ],
                     ],
+                    ['label' => 'Поля', 'icon' => 'table', 'url' => ['/field']],
                     ['label' => 'Посевы', 'icon' => 'table', 'url' => ['/crops']],
                     ['label' => 'Химические средства', 'icon' => 'flask', 'url' => ['/pesticide']],
                     ['label' => 'Обработанные посевы', 'icon' => 'table', 'url' => ['/cultivated-fields']],
                     ['label' => 'Анализ данных', 'icon' => 'area-chart', 'url' => ['/time-series']],
+                    ['label' => 'Отчеты', 'icon' => 'file-text-o', 'url' => ['/report']],
                     ['label' => 'Пользователи', 'icon' => 'user', 'url' => ['/login']],
                 ],
             ]

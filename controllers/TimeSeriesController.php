@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use yii\web\Controller;
 use app\models\TimeSeriesForm;
+use yii\web\UploadedFile;
 
 class TimeSeriesController extends Controller
 {
@@ -17,16 +18,21 @@ class TimeSeriesController extends Controller
            $and = '&';
            $pathPythonInterpreter = 'C:\Users\deadf\PycharmProjects\untitled2\venv\Scripts\python.exe';//путь до интерпретатора python
            $pathPythonScript = 'C:\Users\deadf\PycharmProjects\untitled2\tt.py';//путь до скрипта python
-           $data = Yii::$app->request->post('TimeSeriesForm');
-           $data = json_encode($data);
+           //$data = Yii::$app->request->post('TimeSeriesForm');
+           //$data = json_encode($data);
            //var_dump(json_encode($data));die();
            //$model->python = shell_exec(/*$chcp . $and . */$pathPythonInterpreter . ' ' . $pathPythonScript . ' 2>&1 ' . escapeshellarg((json_encode($data))));
-           $model->python = shell_exec(/*$chcp . $and . */$pathPythonInterpreter . ' ' . $pathPythonScript . ' 2>&1 ' . $data);
+           //$model->python = shell_exec(/*$chcp . $and . */$pathPythonInterpreter . ' ' . $pathPythonScript . ' 2>&1 ' . $data);
            //var_dump($data);
            //var_dump(Yii::$app->request->post('TimeSeriesForm'));
            //return $this->render('index', ['model' => $model]);
 //           var_dump($python, Yii::$app->request->post('TimeSeriesForm'));
            //echo $python;
+           $model->csvFile = UploadedFile::getInstance($model, 'csvFile');
+           if ($model->upload()) {
+
+               return;
+           }
         }
         return $this->render('index', ['model' => $model]);
     }

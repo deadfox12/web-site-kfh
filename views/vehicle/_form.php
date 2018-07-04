@@ -20,18 +20,18 @@ $types= ArrayHelper::map(\app\models\VehicleType::find()->all(),'id','type');
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'accessory_ids')->dropDownList(\app\models\Accessory::listAll(), ['multiple' => true]) ?>
+
+    <?= $form->field($model, 'reg_number')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'fuel')->textInput() ?>
+
     <?= $form->field($model, 'type_id')->dropDownList(
         $types,
         [
             'prompt' => 'Выбор типа техники',
         ]
     ) ?>
-
-    <?= $form->field($model, 'accessory_ids')->dropDownList(\app\models\Accessory::listAll(), ['multiple' => true]) ?>
-
-    <?= $form->field($model, 'reg_number')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'fuel')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Сохранить'), ['class' => 'btn btn-success']) ?>

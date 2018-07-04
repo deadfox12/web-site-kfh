@@ -37,7 +37,7 @@ $varieties= \yii\helpers\ArrayHelper::map($arr1,'id','title');
 
     <?= $form->field($model, 'date')->widget(\kartik\date\DatePicker::className(),[
             'name' => 'dp_1',
-            'type' => \kartik\date\DatePicker::TYPE_COMPONENT_PREPEND,
+            'type' => \kartik\date\DatePicker::TYPE_COMPONENT_APPEND,
             'convertFormat' => true,
             'value'=> date("Y-d-m",(integer) $model->date),
             'pluginOptions' => [

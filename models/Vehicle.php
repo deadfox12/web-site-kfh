@@ -52,6 +52,7 @@ class Vehicle extends \yii\db\ActiveRecord
             'id' => Yii::t('app', 'ID'),
             'title' => Yii::t('app', 'Наименование'),
             'type_id' => Yii::t('app', 'Тип сельхозтехники'),
+            'typeType' => Yii::t('app', 'Тип сельхозтехники'),
             'reg_number' => Yii::t('app', 'Регистрационный номер'),
             'fuel' => Yii::t('app', 'Расход топлива, г/кВт*ч'),
             'accessory_ids' => Yii::t('app', 'Навесное оборудование'),
@@ -64,6 +65,11 @@ class Vehicle extends \yii\db\ActiveRecord
     public function getType()
     {
         return $this->hasOne(VehicleType::className(), ['id' => 'type_id']);
+    }
+
+    public function getTypeType()
+    {
+        return $this->type->type;
     }
 
     /**
@@ -81,6 +87,11 @@ class Vehicle extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Accessory::className(), ['id' => 'accessory_id'])->viaTable('vehicle_accessory', ['vehicle_id' => 'id']);
     }
+
+//    public function getAccessoriesTitle()
+//    {
+//        return $this->model->accessory_ids;
+//    }
 
     public function behaviors()
     {

@@ -60,6 +60,16 @@ class CultivatedFields extends \yii\db\ActiveRecord
         return $this->hasOne(Crops::className(), ['id' => 'crops_id']);
     }
 
+    public function getCropsId()
+    {
+        return $this->crops->id;
+    }
+
+    public function getCropsIdTitle()
+    {
+        return $this->title;
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */
