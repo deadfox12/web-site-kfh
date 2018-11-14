@@ -26,6 +26,9 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'tVj2DVa-hdEZIBHir9k_aMcgsSPrtefK',
+//            'parsers' => [
+//                'application/json' => 'yii\web\JsonParser',
+//            ]
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -33,6 +36,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => false,
+
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -59,7 +63,6 @@ $config = [
 //            'enablePrettyUrl' => true,
 //            'showScriptName' => false,
 //            'rules' => [
-//               // '/'=>'site/login'
 //            ],
 //        ],
 
@@ -67,7 +70,8 @@ $config = [
     'modules' => [
         'gridview' =>  [
             'class' => '\kartik\grid\Module'
-        ]
+        ],
+
     ],
     'params' => $params,
     //'defaultRoute' => 'site/login',
